@@ -5,8 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing:
-        // MixinGradle:
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7.+'
     }
 }
@@ -174,10 +173,30 @@ dependencies {
     // Dev env convenience
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
 
+    // Apply Mixin AP
+    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
+
+
     // Registrate
     def registrate = "com.tterrag.registrate:Registrate:MC${mc_version}-${registrate_version}"
     implementation fg.deobf(registrate)
     shade registrate
+}
+
+mixin {
+    // Refmaps for each SourceSet
+    add sourceSets.main, 'mixins.ranchersdelight.refmap.json'
+
+    // Configs to add to runs and jars
+    config 'mixins.ranchersdelight.json'
+
+    // Specify options for dev run configs
+    debug.verbose = true
+    debug.export = true
+    dumpTargetOnFailure = true
+
+    // Options for the Annotation Processor
+    quiet
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
