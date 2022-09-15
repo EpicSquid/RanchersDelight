@@ -14,21 +14,18 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Chicken.class)
 public abstract class ChickenMixin extends Animal {
 
-	private int featherTime = this.random.nextInt(20) + 20;;
+	private int featherTime = this.random.nextInt(10000) + 6000; // TODO: Config
 
 	protected ChickenMixin(EntityType<? extends Animal> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
 
-	@Inject(
-			at = {@At("TAIL")},
-			method = "aiStep"
-	)
+	@Inject(at = {@At("TAIL")}, method = "aiStep")
 	public void aiStep(CallbackInfo ci) {
-		if (!this.level.isClientSide && this.isAlive() && !this.isBaby()) {
+		if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.featherTime <= 0) {
 			this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 			this.spawnAtLocation(Items.FEATHER);
-			this.featherTime = this.random.nextInt(20) + 20;
+			this.featherTime = this.random.nextInt(10000) + 6000;
 		}
 	}
 }
