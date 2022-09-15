@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Chicken.class)
 public abstract class ChickenMixin extends Animal {
 
-	private int featherTime = this.random.nextInt(RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get()) + (RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get() / 5);
+	private int featherTime = this.random.nextInt(RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get()) + (RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get() / 4);
 
 	protected ChickenMixin(EntityType<? extends Animal> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
@@ -26,7 +26,7 @@ public abstract class ChickenMixin extends Animal {
 		if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.featherTime <= 0) {
 			this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 			this.spawnAtLocation(Items.FEATHER);
-			this.featherTime = this.random.nextInt(RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get()) + (RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get() / 5);
+			this.featherTime = this.random.nextInt(RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get()) + (RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get() / 4);
 		}
 	}
 }

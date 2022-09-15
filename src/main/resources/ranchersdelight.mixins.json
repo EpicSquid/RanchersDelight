@@ -5,7 +5,8 @@
   "refmap": "ranchersdelight.refmap.json",
   "mixins": [
     "ChickenMixin",
-    "RabbitMixin"
+    "RabbitMixin",
+    "PigMixin"
   ],
   "client": [
   ],
