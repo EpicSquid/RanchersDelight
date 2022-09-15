@@ -31,9 +31,6 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 mixin {
     add sourceSets.main, "ranchersdelight.refmap.json"
-
-    debug.verbose = true
-    debug.export = true
 }
 
 minecraft {
