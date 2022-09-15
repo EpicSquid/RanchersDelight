@@ -23,7 +23,7 @@ public class RanchersDelight {
 		@Override
 		@Nonnull
 		public ItemStack makeIcon() {
-			return new ItemStack(RanchersDelightItems.TRUFFLE.get());
+			return new ItemStack(RanchersDelightItems.RABBIT_WOOL.get());
 		}
 	};
 
