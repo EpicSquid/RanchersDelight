@@ -1,5 +1,6 @@
 package com.epicsquid.ranchersdelight.mixin;
 
+import com.epicsquid.ranchersdelight.config.RanchersDelightConfig;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
@@ -14,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Chicken.class)
 public abstract class ChickenMixin extends Animal {
 
-	private int featherTime = this.random.nextInt(10000) + 6000; // TODO: Config
+	private int featherTime = this.random.nextInt(RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get()) + 6000;
 
 	protected ChickenMixin(EntityType<? extends Animal> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
@@ -25,7 +26,7 @@ public abstract class ChickenMixin extends Animal {
 		if (!this.level.isClientSide && this.isAlive() && !this.isBaby() && --this.featherTime <= 0) {
 			this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 			this.spawnAtLocation(Items.FEATHER);
-			this.featherTime = this.random.nextInt(10000) + 6000;
+			this.featherTime = this.random.nextInt(RanchersDelightConfig.SERVER_CONFIG.FEATHER_SPAWN_DELAY.get()) + 6000;
 		}
 	}
 }
