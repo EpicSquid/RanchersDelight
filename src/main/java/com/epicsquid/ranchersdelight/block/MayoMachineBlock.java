@@ -1,5 +1,6 @@
 package com.epicsquid.ranchersdelight.block;
 
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,6 +27,6 @@ public class MayoMachineBlock extends Block {
 	public BlockState getStateForPlacement(@NotNull BlockPlaceContext pContext) {
 		return super.getStateForPlacement(pContext)
 				.setValue(BlockStateProperties.POWERED, false)
-				.setValue(BlockStateProperties.FACING, pContext.getNearestLookingDirection().getOpposite());
+				.setValue(BlockStateProperties.FACING, Direction.UP);
 	}
 }
