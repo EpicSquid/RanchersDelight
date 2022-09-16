@@ -2,3 +2,6 @@
 e6b8a8b86b9d6ac9d2e932b9a6390abea53ac70b assets/ranchersdelight/lang/en_us.json
 a4f7de12e264e9a92b131eb7c89941667734563a assets/ranchersdelight/models/item/rabbit_wool.json
 136b4051638571271e70919ad721d075d3df1de3 assets/ranchersdelight/models/item/truffle.json
+197d65a3ae12cba2ef0f7dd348049658251b860b data/minecraft/tags/items/wool.json
+93995c872ffb4df610fb65a3375ea7eae3204c8a data/ranchersdelight/advancements/recipes/misc/rabbit_wool.json
+4672753bb5779a90537ef53f19bf13aec60efcb9 data/ranchersdelight/recipes/rabbit_wool.json

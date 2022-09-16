@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X ",
+    "XLX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "ranchersdelight:rabbit_wool"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "result": {
+    "item": "minecraft:rabbit_hide"
+  }
+}

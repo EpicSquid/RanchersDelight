@@ -30,6 +30,8 @@ public class RanchersDelight {
 	public RanchersDelight() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, RanchersDelightConfig.SERVER_CONFIG_SPEC);
 
+		REGISTRATE.get().creativeModeTab(() -> ITEM_GROUP);
+
 		RanchersDelightItems.init();
 
 		MinecraftForge.EVENT_BUS.register(this);

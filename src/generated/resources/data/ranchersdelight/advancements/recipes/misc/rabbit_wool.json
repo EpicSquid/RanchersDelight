@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "ranchersdelight:rabbit_wool"
+    ]
+  },
+  "criteria": {
+    "has_rabbit_wool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "ranchersdelight:rabbit_wool"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "ranchersdelight:rabbit_wool"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_rabbit_wool",
+      "has_the_recipe"
+    ]
+  ]
+}
