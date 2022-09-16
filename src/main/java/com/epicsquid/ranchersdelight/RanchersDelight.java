@@ -1,6 +1,7 @@
 package com.epicsquid.ranchersdelight;
 
 import com.epicsquid.ranchersdelight.config.RanchersDelightConfig;
+import com.epicsquid.ranchersdelight.init.RanchersDelightBlocks;
 import com.epicsquid.ranchersdelight.init.RanchersDelightItems;
 import com.tterrag.registrate.Registrate;
 import net.minecraft.world.item.CreativeModeTab;
@@ -33,6 +34,7 @@ public class RanchersDelight {
 		REGISTRATE.get().creativeModeTab(() -> ITEM_GROUP);
 
 		RanchersDelightItems.init();
+		RanchersDelightBlocks.init();
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}
