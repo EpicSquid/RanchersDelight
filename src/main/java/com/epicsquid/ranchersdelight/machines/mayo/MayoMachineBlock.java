@@ -1,6 +1,6 @@
-package com.epicsquid.ranchersdelight.block;
+package com.epicsquid.ranchersdelight.machines.mayo;
 
-import com.epicsquid.ranchersdelight.init.RanchersDelightBlockEntity;
+import com.epicsquid.ranchersdelight.init.RanchersDelightBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -37,6 +37,6 @@ public class MayoMachineBlock extends Block implements EntityBlock {
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
-		return RanchersDelightBlockEntity.MAYONNAISE_MACHINE.create(pos, state);
+		return RanchersDelightBlockEntities.MAYONNAISE_MACHINE.create(pos, state);
 	}
 }

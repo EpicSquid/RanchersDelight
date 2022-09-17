@@ -1,11 +1,11 @@
 package com.epicsquid.ranchersdelight.init;
 
 import com.epicsquid.ranchersdelight.RanchersDelight;
-import com.epicsquid.ranchersdelight.block.MayoMachineBlockEntity;
+import com.epicsquid.ranchersdelight.machines.mayo.MayoMachineBlockEntity;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 
-public class RanchersDelightBlockEntity {
+public class RanchersDelightBlockEntities {
 
 	private static final Registrate REGISTRATE = RanchersDelight.registrate();
 

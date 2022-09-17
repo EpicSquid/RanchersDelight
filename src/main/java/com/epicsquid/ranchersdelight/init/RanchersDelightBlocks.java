@@ -1,7 +1,7 @@
 package com.epicsquid.ranchersdelight.init;
 
 import com.epicsquid.ranchersdelight.RanchersDelight;
-import com.epicsquid.ranchersdelight.block.MayoMachineBlock;
+import com.epicsquid.ranchersdelight.machines.mayo.MayoMachineBlock;
 import com.tterrag.registrate.Registrate;
 import com.tterrag.registrate.util.entry.RegistryEntry;
 import net.minecraft.resources.ResourceLocation;
