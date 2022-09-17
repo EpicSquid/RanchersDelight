@@ -8,8 +8,9 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import team.lodestar.lodestone.systems.block.LodestoneEntityBlock;
 
-public class MayoMachineBlock extends Block {
+public class MayoMachineBlock extends LodestoneEntityBlock {
 
 	public MayoMachineBlock(Properties pProperties) {
 		super(pProperties);
