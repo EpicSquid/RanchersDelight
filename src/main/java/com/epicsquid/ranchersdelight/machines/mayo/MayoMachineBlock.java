@@ -3,13 +3,20 @@ package com.epicsquid.ranchersdelight.machines.mayo;
 import com.epicsquid.ranchersdelight.init.RanchersDelightBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -38,5 +45,17 @@ public class MayoMachineBlock extends Block implements EntityBlock {
 	@Override
 	public BlockEntity newBlockEntity(@NotNull BlockPos pos, @NotNull BlockState state) {
 		return RanchersDelightBlockEntities.MAYONNAISE_MACHINE.create(pos, state);
+	}
+
+	@Override
+	public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+		if (pLevel.isClientSide) {
+			return InteractionResult.SUCCESS;
+		}
+		BlockEntity be = pLevel.getBlockEntity(pPos);
+		if (be instanceof MayoMachineBlockEntity mayoBe) {
+			NetworkHooks.openGui((ServerPlayer) pPlayer, mayoBe, mayoBe::sendToMenu);
+		}
+		return InteractionResult.SUCCESS;
 	}
 }

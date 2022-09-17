@@ -1,8 +1,10 @@
 package com.epicsquid.ranchersdelight;
 
 import com.epicsquid.ranchersdelight.config.RanchersDelightConfig;
+import com.epicsquid.ranchersdelight.init.RanchersDelightBlockEntities;
 import com.epicsquid.ranchersdelight.init.RanchersDelightBlocks;
 import com.epicsquid.ranchersdelight.init.RanchersDelightItems;
+import com.epicsquid.ranchersdelight.init.RanchersDelightMenus;
 import com.tterrag.registrate.Registrate;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -35,6 +37,8 @@ public class RanchersDelight {
 
 		RanchersDelightItems.init();
 		RanchersDelightBlocks.init();
+		RanchersDelightBlockEntities.init();
+		RanchersDelightMenus.init();
 
 		MinecraftForge.EVENT_BUS.register(this);
 	}

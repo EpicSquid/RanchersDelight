@@ -1,70 +1,89 @@
 package com.epicsquid.ranchersdelight.machines.mayo;
 
+import com.epicsquid.ranchersdelight.init.RanchersDelightMenus;
+import com.epicsquid.ranchersdelight.machines.base.BaseMenu;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.IItemHandler;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class MayoMachineMenu extends AbstractContainerMenu {
+public class MayoMachineMenu extends BaseMenu<MayoMachineBlockEntity> {
+	private Slot inputSlot;
+	private Slot outputSlot;
 
-	private final IItemHandler playerInv;
-	private MayoMachineBlockEntity entity;
-	public static Component component = new TextComponent("Mayonnaise Machine");
-
-	public MayoMachineMenu(MenuType<?> menuType, int pContainerId, Inventory playerInv, MayoMachineBlockEntity entity) {
-		super(menuType, pContainerId);
-		this.playerInv = new InvWrapper(playerInv);
-		this.entity = entity;
-		entity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(c -> {
-			addSlot(new SlotItemHandler(c, 0, 79, 7));
-			addSlot(new SlotItemHandler(c, 1, 79, 58));
-		});
-		layoutPlayerInventorySlots(8, 84);
+	public MayoMachineMenu(@Nullable MenuType menuType, int id, Inventory playerInv, FriendlyByteBuf buf) {
+		super(menuType, id, playerInv, buf);
 	}
 
-	public MayoMachineMenu(MenuType<?> type, int id, Inventory inv, FriendlyByteBuf extraData) {
-		super(type, id);
-		this.playerInv = new InvWrapper(inv);
-		layoutPlayerInventorySlots(8, 84);
+	public MayoMachineMenu(@Nullable MenuType menuType, int id, Inventory playerInv, MayoMachineBlockEntity menuContainer) {
+		super(menuType, id, playerInv, menuContainer);
 	}
 
-	private void layoutPlayerInventorySlots(int leftCol, int topRow) {
-		// Player inventory
-		addSlotBox(this.playerInv, 9, leftCol, topRow, 9, 18, 3, 18);
-
-		// Hotbar
-		topRow += 58;
-		addSlotRange(this.playerInv, 0, leftCol, topRow, 9, 18);
+	public static MayoMachineMenu create(int id, Inventory inv, MayoMachineBlockEntity be) {
+		return new MayoMachineMenu(RanchersDelightMenus.MAYONNAISE_MACHINE.get(), id, inv, be);
 	}
 
 
-	private int addSlotRange(IItemHandler handler, int index, int x, int y, int amount, int dx) {
-		for (int i = 0; i < amount; i++) {
-			addSlot(new SlotItemHandler(handler, index, x, y));
-			x += dx;
-			index++;
+	@Override
+	protected MayoMachineBlockEntity initClient(FriendlyByteBuf extraData) {
+		ClientLevel level = Minecraft.getInstance().level;
+		assert level != null;
+		BlockEntity be = level.getBlockEntity(extraData.readBlockPos());
+		if (be instanceof MayoMachineBlockEntity mayoMachine) {
+			mayoMachine.load(extraData.readNbt());
+			return mayoMachine;
 		}
-		return index;
-	}
-
-	private int addSlotBox(IItemHandler handler, int index, int x, int y, int horAmount, int dx, int verAmount, int dy) {
-		for (int j = 0; j < verAmount; j++) {
-			index = addSlotRange(handler, index, x, y, horAmount, dx);
-			y += dy;
-		}
-		return index;
+		return null;
 	}
 
 	@Override
-	public boolean stillValid(@NotNull Player player) {
-		return false;
+	protected void init(MayoMachineBlockEntity contentHolder) {
+
+	}
+
+	@Override
+	protected void addSlots() {
+		inputSlot = new SlotItemHandler(menuContainer.inv, 0, 21, 57);
+		outputSlot = new SlotItemHandler(menuContainer.inv, 1, 166, 57) {
+			@Override
+			public boolean mayPlace(@NotNull ItemStack stack) {
+				return false;
+			}
+		};
+
+		addSlot(inputSlot);
+		addSlot(outputSlot);
+		addPlayerSlots(37, 161);
+	}
+
+	@Override
+	protected void saveData(MayoMachineBlockEntity contentHolder) {
+
+	}
+
+	@NotNull
+	@Override
+	public ItemStack quickMoveStack(Player playerIn, int index) {
+		Slot clickedSlot = getSlot(index);
+		if (!clickedSlot.hasItem()) {
+			return ItemStack.EMPTY;
+		}
+
+		ItemStack stack = clickedSlot.getItem();
+		if (index < 2) {
+			moveItemStackTo(stack, 2, slots.size(), false);
+		} else {
+			moveItemStackTo(stack, 0, 1, false);
+		}
+
+		return ItemStack.EMPTY;
 	}
 }
