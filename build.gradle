@@ -131,11 +131,8 @@ dependencies {
     }
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 
-    // Farmer's Delight Dependency
+    // Other Mod Compatibility
     implementation fg.deobf("curse.maven:farmers_delight-398521:3765351")
-
-    // Lodestone Dependency
-    implementation fg.deobf("team.lodestar.lodestone:lodestone:${minecraft_version}-${lodestone_version}")
 }
 
 jar {
