@@ -51,8 +51,8 @@ public class MayoMachineMenu extends BaseMenu<MayoMachineBlockEntity> {
 
 	@Override
 	protected void addSlots() {
-		inputSlot = new SlotItemHandler(menuContainer.inv, 0, 21, 57);
-		outputSlot = new SlotItemHandler(menuContainer.inv, 1, 166, 57) {
+		inputSlot = new SlotItemHandler(menuContainer.inv, 0, 56, 35);
+		outputSlot = new SlotItemHandler(menuContainer.inv, 1, 116, 35) {
 			@Override
 			public boolean mayPlace(@NotNull ItemStack stack) {
 				return false;
@@ -61,7 +61,7 @@ public class MayoMachineMenu extends BaseMenu<MayoMachineBlockEntity> {
 
 		addSlot(inputSlot);
 		addSlot(outputSlot);
-		addPlayerSlots(37, 161);
+		addPlayerSlots(8, 84);
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class MayoMachineMenu extends BaseMenu<MayoMachineBlockEntity> {
 
 	@NotNull
 	@Override
-	public ItemStack quickMoveStack(Player playerIn, int index) {
+	public ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
 		Slot clickedSlot = getSlot(index);
 		if (!clickedSlot.hasItem()) {
 			return ItemStack.EMPTY;

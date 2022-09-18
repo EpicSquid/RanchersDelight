@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider {
 
-	public final ItemStackHandler inv = new ItemStackHandler(3);
+	public final ItemStackHandler inv = new ItemStackHandler(2);
 	private final LazyOptional<IItemHandler> invOp = LazyOptional.of(() -> inv);
 
 	public MayoMachineBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
@@ -39,13 +39,13 @@ public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider 
 	}
 
 	@Override
-	protected void saveAdditional(CompoundTag tag) {
+	protected void saveAdditional(@NotNull CompoundTag tag) {
 		super.saveAdditional(tag);
 		tag.put("inv", inv.serializeNBT());
 	}
 
 	@Override
-	public void load(CompoundTag tag) {
+	public void load(@NotNull CompoundTag tag) {
 		super.load(tag);
 		inv.deserializeNBT(tag.getCompound("inv"));
 	}
@@ -55,6 +55,7 @@ public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider 
 		buffer.writeNbt(getUpdateTag());
 	}
 
+	@NotNull
 	@Override
 	public Component getDisplayName() {
 		return new TextComponent("Mayonnaise Machine");
@@ -62,7 +63,7 @@ public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider 
 
 	@Nullable
 	@Override
-	public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+	public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
 		return MayoMachineMenu.create(pContainerId, pPlayerInventory, this);
 	}
 }

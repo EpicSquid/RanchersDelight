@@ -13,8 +13,7 @@ import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
-
-import javax.annotation.Nonnull;
+import org.jetbrains.annotations.NotNull;
 
 @Mod(RanchersDelight.MODID)
 public class RanchersDelight {
@@ -24,7 +23,7 @@ public class RanchersDelight {
 
 	public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(RanchersDelight.MODID) {
 		@Override
-		@Nonnull
+		@NotNull
 		public ItemStack makeIcon() {
 			return new ItemStack(RanchersDelightItems.RABBIT_WOOL.get());
 		}
