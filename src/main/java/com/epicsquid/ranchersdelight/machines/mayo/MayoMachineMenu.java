@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.block.entity.container.CookingPotMealSlot;
 
 public class MayoMachineMenu extends BaseMenu<MayoMachineBlockEntity> {
 	private Slot inputSlot;
@@ -52,12 +53,7 @@ public class MayoMachineMenu extends BaseMenu<MayoMachineBlockEntity> {
 	@Override
 	protected void addSlots() {
 		inputSlot = new SlotItemHandler(menuContainer.inv, 0, 56, 35);
-		outputSlot = new SlotItemHandler(menuContainer.inv, 1, 116, 35) {
-			@Override
-			public boolean mayPlace(@NotNull ItemStack stack) {
-				return false;
-			}
-		};
+		outputSlot = new CookingPotMealSlot(menuContainer.inv, 1, 116, 35);
 
 		addSlot(inputSlot);
 		addSlot(outputSlot);

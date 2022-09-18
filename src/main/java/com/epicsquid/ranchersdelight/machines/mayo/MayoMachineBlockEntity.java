@@ -12,6 +12,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -24,6 +26,8 @@ public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider 
 
 	public final ItemStackHandler inv = new ItemStackHandler(2);
 	private final LazyOptional<IItemHandler> invOp = LazyOptional.of(() -> inv);
+	private int progress = 0;
+
 
 	public MayoMachineBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
 		super(pType, pPos, pBlockState);
@@ -42,12 +46,14 @@ public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider 
 	protected void saveAdditional(@NotNull CompoundTag tag) {
 		super.saveAdditional(tag);
 		tag.put("inv", inv.serializeNBT());
+		tag.putInt("progress", progress);
 	}
 
 	@Override
 	public void load(@NotNull CompoundTag tag) {
 		super.load(tag);
 		inv.deserializeNBT(tag.getCompound("inv"));
+		progress = tag.getInt("progress");
 	}
 
 	public void sendToMenu(FriendlyByteBuf buffer) {
@@ -65,5 +71,10 @@ public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider 
 	@Override
 	public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pPlayerInventory, @NotNull Player pPlayer) {
 		return MayoMachineMenu.create(pContainerId, pPlayerInventory, this);
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	public int getProgressScaled() {
+		return progress / 100;
 	}
 }
