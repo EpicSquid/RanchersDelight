@@ -36,7 +36,7 @@ public class MayoMachineScreen extends BaseScreen<MayoMachineMenu> {
 		blit(pPoseStack, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
 
 		// Progress bar
-		int progress = 12;
+		int progress = menu.getProgressScaled();
 		this.blit(pPoseStack, this.leftPos + PROGRESS_ARROW.x, this.topPos + PROGRESS_ARROW.y, 176, 0, progress + 1, PROGRESS_ARROW.height);
 	}
 }

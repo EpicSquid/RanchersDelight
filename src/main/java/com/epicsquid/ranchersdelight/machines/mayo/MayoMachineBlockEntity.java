@@ -1,5 +1,6 @@
 package com.epicsquid.ranchersdelight.machines.mayo;
 
+import com.epicsquid.ranchersdelight.machines.base.TickableEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -9,6 +10,7 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
@@ -22,8 +24,9 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider {
+public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider, TickableEntity {
 
+	private static final int MAX_PROGRESS = 480;
 	public final ItemStackHandler inv = new ItemStackHandler(2);
 	private final LazyOptional<IItemHandler> invOp = LazyOptional.of(() -> inv);
 	private int progress = 0;
@@ -75,6 +78,14 @@ public class MayoMachineBlockEntity extends BlockEntity implements MenuProvider 
 
 	@OnlyIn(Dist.CLIENT)
 	public int getProgressScaled() {
-		return progress / 100;
+		return progress / 20;
+	}
+
+	@Override
+	public void tick(Level level, BlockPos pos, BlockState state) {
+		if (++progress >= MAX_PROGRESS) {
+			progress = 0;
+			setChanged();
+		}
 	}
 }

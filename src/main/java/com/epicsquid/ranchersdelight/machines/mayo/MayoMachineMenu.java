@@ -82,4 +82,8 @@ public class MayoMachineMenu extends BaseMenu<MayoMachineBlockEntity> {
 
 		return ItemStack.EMPTY;
 	}
+
+	public int getProgressScaled() {
+		return menuContainer.getProgressScaled();
+	}
 }
