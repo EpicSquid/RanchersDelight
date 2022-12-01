@@ -1,0 +1,13 @@
+// 1.19.2	2022-12-01T18:20:11.5543651	Registrate Provider for ranchersdelight [Recipes, Advancements, Loot tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+588e488aae66a07c211495a08b34dfdde27497e1 assets/ranchersdelight/blockstates/mayonnaise_machine.json
+45fb1c4e8712355d860a6dca9b916dba548a194c assets/ranchersdelight/lang/en_ud.json
+e81855493e8dcf316dd775d113682db2a3c0240d assets/ranchersdelight/lang/en_us.json
+8260a81e000cea911d018e3db80acba5d2485c72 assets/ranchersdelight/models/block/mayonnaise_machine.json
+7fdae82447b16f3aef8e81477e5dd2dbb5e3ac1b assets/ranchersdelight/models/item/mayonnaise_machine.json
+9d643ffafdb0d647b0ed2f81b0e6bb34398090c1 assets/ranchersdelight/models/item/rabbit_wool.json
+eb2e3c2c92adb14705feee695f2d77a345a49aad assets/ranchersdelight/models/item/truffle.json
+3ce99b101ad240a12dbc482a03578a720611e9aa data/minecraft/tags/blocks/mineable/axe.json
+198c5e2555957da716dc8a285bf8cf5e23ff35e5 data/minecraft/tags/items/wool.json
+31b4dbe744d06da0fd511d5e37cf57576a99b94f data/ranchersdelight/advancements/recipes/misc/rabbit_wool.json
+21a60e9078be3a714a4df88af259d81702dae754 data/ranchersdelight/loot_tables/blocks/mayonnaise_machine.json
+1cb5a29f17805268473e62c42437761faa25b273 data/ranchersdelight/recipes/rabbit_wool.json

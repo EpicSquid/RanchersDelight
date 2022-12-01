@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "side": "ranchersdelight:block/mayonnaise_machine_side",
     "bottom": "ranchersdelight:block/mayonnaise_machine_bottom",
+    "side": "ranchersdelight:block/mayonnaise_machine_side",
     "top": "ranchersdelight:block/mayonnaise_machine_top"
   }
 }

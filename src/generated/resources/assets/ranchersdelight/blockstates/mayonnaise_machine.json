@@ -4,10 +4,25 @@
       "model": "ranchersdelight:block/mayonnaise_machine",
       "x": 180
     },
-    "facing=up,powered=false": {
-      "model": "ranchersdelight:block/mayonnaise_machine"
+    "facing=down,powered=true": {
+      "model": "ranchersdelight:block/mayonnaise_machine",
+      "x": 180
+    },
+    "facing=east,powered=false": {
+      "model": "ranchersdelight:block/mayonnaise_machine",
+      "x": 90,
+      "y": 90
+    },
+    "facing=east,powered=true": {
+      "model": "ranchersdelight:block/mayonnaise_machine",
+      "x": 90,
+      "y": 90
     },
     "facing=north,powered=false": {
+      "model": "ranchersdelight:block/mayonnaise_machine",
+      "x": 90
+    },
+    "facing=north,powered=true": {
       "model": "ranchersdelight:block/mayonnaise_machine",
       "x": 90
     },
@@ -16,41 +31,26 @@
       "x": 90,
       "y": 180
     },
-    "facing=west,powered=false": {
-      "model": "ranchersdelight:block/mayonnaise_machine",
-      "x": 90,
-      "y": 270
-    },
-    "facing=east,powered=false": {
-      "model": "ranchersdelight:block/mayonnaise_machine",
-      "x": 90,
-      "y": 90
-    },
-    "facing=down,powered=true": {
-      "model": "ranchersdelight:block/mayonnaise_machine",
-      "x": 180
-    },
-    "facing=up,powered=true": {
-      "model": "ranchersdelight:block/mayonnaise_machine"
-    },
-    "facing=north,powered=true": {
-      "model": "ranchersdelight:block/mayonnaise_machine",
-      "x": 90
-    },
     "facing=south,powered=true": {
       "model": "ranchersdelight:block/mayonnaise_machine",
       "x": 90,
       "y": 180
     },
-    "facing=west,powered=true": {
+    "facing=up,powered=false": {
+      "model": "ranchersdelight:block/mayonnaise_machine"
+    },
+    "facing=up,powered=true": {
+      "model": "ranchersdelight:block/mayonnaise_machine"
+    },
+    "facing=west,powered=false": {
       "model": "ranchersdelight:block/mayonnaise_machine",
       "x": 90,
       "y": 270
     },
-    "facing=east,powered=true": {
+    "facing=west,powered=true": {
       "model": "ranchersdelight:block/mayonnaise_machine",
       "x": 90,
-      "y": 90
+      "y": 270
     }
   }
 }

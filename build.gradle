@@ -118,7 +118,7 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     // Dev Environment Runtimes
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
     // Use this to make sure it functions in the intellij environment
     if (System.getProperty("idea.sync.active") != "true") {
@@ -132,7 +132,7 @@ dependencies {
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
 
     // Other Mod Compatibility
-    implementation fg.deobf("curse.maven:farmers_delight-398521:3765351")
+    implementation fg.deobf("curse.maven:farmers_delight-398521:3999157")
 }
 
 jar {

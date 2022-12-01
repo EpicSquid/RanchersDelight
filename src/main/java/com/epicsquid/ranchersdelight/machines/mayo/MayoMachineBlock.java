@@ -65,7 +65,7 @@ public class MayoMachineBlock extends Block implements EntityBlock {
 		}
 		BlockEntity be = pLevel.getBlockEntity(pPos);
 		if (be instanceof MayoMachineBlockEntity mayoBe) {
-			NetworkHooks.openGui((ServerPlayer) pPlayer, mayoBe, mayoBe::sendToMenu);
+			NetworkHooks.openScreen((ServerPlayer) pPlayer, mayoBe, mayoBe::sendToMenu);
 		}
 		return InteractionResult.SUCCESS;
 	}
