@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "L": {
-      "item": "minecraft:leather"
+      "tag": "forge:leather"
     },
     "X": {
       "item": "ranchersdelight:rabbit_wool"

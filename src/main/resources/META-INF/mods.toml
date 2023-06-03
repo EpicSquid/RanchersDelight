@@ -1,7 +1,7 @@
 modLoader = "javafml" #mandatory
 loaderVersion = "[43,)" #mandatory
 license = "MIT"
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+issueTrackerURL="https://github.com/EpicSquid/RanchersDelight/issues" #optional
 [[mods]] #mandatory
 modId = "ranchersdelight" #mandatory
 version = "${file.jarVersion}" #mandatory
@@ -18,7 +18,7 @@ them.
 [[dependencies.ranchersdelight]]
 modId = "forge"
 mandatory = true
-versionRange = "[43,)"
+versionRange = "[43.2,)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.ranchersdelight]]

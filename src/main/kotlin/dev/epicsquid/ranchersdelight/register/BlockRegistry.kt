@@ -11,10 +11,10 @@ object BlockRegistry {
 	private val registrate = RanchersDelight.registrate
 
 	val mayonnaiseMachine: BlockEntry<MayoMachineBlock> =
-		registrate.block<MayoMachineBlock>("mayonnaise_machine", ::MayoMachineBlock).apply {
-			tag(BlockTags.MINEABLE_WITH_AXE)
-			properties { props -> props.sound(SoundType.WOOD) }
-			blockstate { ctx, p ->
+		registrate.block<MayoMachineBlock>("mayonnaise_machine", ::MayoMachineBlock)
+			.tag(BlockTags.MINEABLE_WITH_AXE)
+			.properties { props -> props.sound(SoundType.WOOD) }
+			.blockstate { ctx, p ->
 				p.directionalBlock(
 					ctx.get(), p.models().cubeBottomTop(
 						"mayonnaise_machine",
@@ -24,9 +24,9 @@ object BlockRegistry {
 					)
 				)
 			}
-			item()
-			build()
-		}.register()
+			.item()
+			.build()
+			.register()
 
 
 	fun classload() {}

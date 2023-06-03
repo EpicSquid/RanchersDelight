@@ -19,9 +19,9 @@ jarJar.enable()
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 
-//mixin {
-//	add sourceSets.main, "ranchersdelight.refmap.json"
-//}
+mixin {
+	add(sourceSets.main.get(), "ranchersdelight.refmap.json")
+}
 
 minecraft {
 	mappings("parchment", "2022.11.27-1.19.2")
