@@ -9,7 +9,7 @@ plugins {
 	id("org.spongepowered.mixin")
 }
 
-version = "1.19.2-1.0.0"
+version = "1.19.2-0.1.0"
 group = "dev.epicsquid"
 
 val modid: String = "ranchersdelight"
