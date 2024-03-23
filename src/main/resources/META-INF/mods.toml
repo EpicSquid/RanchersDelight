@@ -1,35 +1,37 @@
-modLoader = "javafml" #mandatory
-loaderVersion = "[43,)" #mandatory
-license = "MIT"
-issueTrackerURL="https://github.com/EpicSquid/RanchersDelight/issues" #optional
-[[mods]] #mandatory
-modId = "ranchersdelight" #mandatory
-version = "${file.jarVersion}" #mandatory
-displayName = "Rancher's Delight" #mandatory
+modLoader = "kotlinforforge"
+loaderVersion = "${loaderVersionRange}"
+license = "${modLicense}"
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
+[[mods]]
+modId = "${modId}"
+version = "${modVersion}"
+displayName = "${modName}"
+# A URL to query for updates for this mod. See the JSON update specification https://docs.minecraftforge.net/en/latest/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+# A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
-# logoFile="examplemod.png" #optional
-credits = "My wonderful Wife"
-authors = "EpicSquid & EmOcean"
-description = '''
-A mod to add more ranching to Minecraft, adding new ways of obtaining items from various animals without having to kill
-them.
-'''
-[[dependencies.ranchersdelight]]
+# A file name (in the root of the mod JAR) containing a logo for display
+#logoFile="examplemod.png" #optional
+# A text field displayed in the mod UI
+#credits="" #optional
+# A text field displayed in the mod UI
+authors = "${modAuthors}"
+description = '''${modDescription}'''
+[[dependencies.${ modId }]]
 modId = "forge"
 mandatory = true
-versionRange = "[43.2,)"
+versionRange = "${forgeVersionRange}"
 ordering = "NONE"
 side = "BOTH"
-[[dependencies.ranchersdelight]]
+[[dependencies.${ modId }]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.2,1.20)"
+versionRange = "${minecraftVersionRange}"
 ordering = "NONE"
 side = "BOTH"
-[[dependencies.ranchersdelight]]
+[[dependencies.${ modId }]]
 modId = "farmersdelight"
 mandatory = true
-versionRange = "[1.19-1.2,)"
+versionRange = "${farmersDelightVersionRange}"
 ordering = "AFTER"
 side = "BOTH"

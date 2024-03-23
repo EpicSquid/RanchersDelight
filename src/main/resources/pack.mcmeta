@@ -1,6 +1,6 @@
 {
 	"pack": {
-		"description": "ranchersdelight resources",
-		"pack_format": 9
+		"description": "${modId} resources",
+		"pack_format": 15
 	}
 }
