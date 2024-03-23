@@ -1,5 +1,6 @@
 {
   "block.ranchersdelight.mayonnaise_machine": "Mayonnaise Machine",
   "item.ranchersdelight.rabbit_wool": "Rabbit Wool",
-  "item.ranchersdelight.truffle": "Truffle"
+  "item.ranchersdelight.truffle": "Truffle",
+  "itemGroup.ranchersdelight.main": "Rancher's Delight"
 }

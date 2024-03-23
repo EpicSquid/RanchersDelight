@@ -19,6 +19,7 @@ object RanchersDelight {
 
 	init {
 		val modEventBus = MOD_BUS
+		modEventBus.addListener { event: GatherDataEvent -> gatherData(event) }
 		ModLoadingContext.get().registerConfig(SERVER, Config.RANCHERS_DELIGHT_CONFIG_SPEC, "ranchers-delight-server.toml")
 		BlockRegistry.REGISTRY.register(modEventBus)
 		ItemRegistry.REGISTRY.register(modEventBus)
@@ -39,6 +40,7 @@ object RanchersDelight {
 			override fun addTags(pProvider: Provider) {
 			}
 		}
+		generator.addProvider(event.includeServer(), blockTagsProvider)
 		generator.addProvider(
 			event.includeServer(),
 			RanchersDelightItemTags(packOutput, lookupProvider, blockTagsProvider, existingFileHelper)

@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ranchersdelight:rabbit_wool"
+        "recipe": "ranchersdelight:rabbit_wool_to_rabbit_hide"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,8 @@
   ],
   "rewards": {
     "recipes": [
-      "ranchersdelight:rabbit_wool"
+      "ranchersdelight:rabbit_wool_to_rabbit_hide"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

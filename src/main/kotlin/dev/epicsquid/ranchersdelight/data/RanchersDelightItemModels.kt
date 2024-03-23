@@ -1,7 +1,6 @@
 package dev.epicsquid.ranchersdelight.data
 
 import dev.epicsquid.ranchersdelight.RanchersDelight
-import dev.epicsquid.ranchersdelight.registry.BlockRegistry
 import dev.epicsquid.ranchersdelight.registry.ItemRegistry
 import dev.epicsquid.squidink.data.block
 import net.minecraft.data.PackOutput
@@ -14,7 +13,7 @@ class RanchersDelightItemModels(
 ) : ItemModelProvider(output, RanchersDelight.MODID, existingFileHelper) {
 
 	override fun registerModels() {
-		block(BlockRegistry.mayonnaiseMachine)
+		block(ItemRegistry.mayonnaiseMachine)
 
 		basicItem(ItemRegistry.truffle)
 		basicItem(ItemRegistry.rabbitWool)
