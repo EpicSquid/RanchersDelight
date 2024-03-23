@@ -1,6 +1,6 @@
 package dev.epicsquid.ranchersdelight.config
 
-import dev.epicsquid.ranchersdelight.utils.stack
+import dev.epicsquid.squidink.config.stack
 import net.minecraftforge.common.ForgeConfigSpec
 
 class RanchersDelightConfig(

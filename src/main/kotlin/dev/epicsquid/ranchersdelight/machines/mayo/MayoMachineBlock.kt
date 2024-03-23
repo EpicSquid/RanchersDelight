@@ -1,7 +1,7 @@
 package dev.epicsquid.ranchersdelight.machines.mayo
 
 import dev.epicsquid.ranchersdelight.machines.base.TickableEntity
-import dev.epicsquid.ranchersdelight.register.BlockEntityRegistry
+import dev.epicsquid.ranchersdelight.registry.BlockEntityRegistry
 import net.minecraft.core.BlockPos
 import net.minecraft.core.Direction.UP
 import net.minecraft.world.item.context.BlockPlaceContext
